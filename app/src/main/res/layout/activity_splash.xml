@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    tools:context=".Splash">
+
+    <!--    <ImageView-->
+    <!--        android:id="@+id/splashimage"-->
+    <!--        android:layout_width="80dp"-->
+    <!--        android:layout_height="80dp"-->
+    <!--        android:scaleType="centerCrop"-->
+    <!--        android:src="@drawable/ic_baseline_cake_24"-->
+    <!--        app:tint="@color/design_default_color_primary_dark"-->
+    <!--        android:layout_centerInParent="true"/>-->
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/id"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:textSize="25dp"-->
+    <!--        android:text="Welcome to My Cake App"-->
+    <!--        android:layout_below="@id/splashimage"-->
+    <!--        android:layout_centerHorizontal="true"-->
+    <!--        android:layout_marginVertical="15dp"-->
+    <!--        android:layout_marginHorizontal="10dp"-->
+    <!--        android:textColor="@color/black"/>-->
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottie"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:lottie_autoPlay="true"
+        android:layout_gravity="center"
+        android:layout_margin="20dp"
+        app:lottie_rawRes="@raw/intro"
+        app:lottie_loop="false"/>
+
+
+</RelativeLayout>
