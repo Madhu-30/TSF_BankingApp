@@ -46,11 +46,35 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
         Model data = dataList.get(position);
 //        database = RoomDB.getInstance(context);
 
-        holder.name.setText(data.getName());
-        holder.balance.setText(data.getBalance()+"");
-        holder.email.setText(data.getEmail());
+        holder.name.setText("Name : "+data.getName());
+        holder.balance.setText("Current Balance : "+data.getBalance()+"");
+        holder.email.setText("Email : "+data.getEmail());
 
         holder.name.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(context, TransferMoney.class);
+
+                i.putExtra("name_from", data.getName());
+                i.putExtra("balance_from", data.getBalance());
+                i.putExtra("email_from", data.getEmail());
+                context.startActivity(i);
+                context.overridePendingTransition(R.anim.toptonormal, R.anim.fixed);
+            }
+        });
+        holder.balance.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(context, TransferMoney.class);
+
+                i.putExtra("name_from", data.getName());
+                i.putExtra("balance_from", data.getBalance());
+                i.putExtra("email_from", data.getEmail());
+                context.startActivity(i);
+                context.overridePendingTransition(R.anim.toptonormal, R.anim.fixed);
+            }
+        });
+        holder.email.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(context, TransferMoney.class);
