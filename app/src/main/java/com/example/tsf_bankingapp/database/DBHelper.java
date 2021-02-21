@@ -13,6 +13,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String COL1 ="Name";
     public static final String COL2 ="Email";
     public static final String COL3 ="Balance";
+    public static final String COL4 = "AccountNumber";
 
 
     public DBHelper(Context context){
@@ -22,7 +23,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-         db.execSQL("CREATE TABLE "+TABLE_NAME+"(NAME TEXT primary key, EMAIL TEXT,BALANCE INTEGER)");
+         db.execSQL("CREATE TABLE "+TABLE_NAME+"(NAME TEXT primary key, EMAIL TEXT,BALANCE INTEGER,ACCOUNTNUMBER TEXT)");
 
     }
 
@@ -33,7 +34,7 @@ public class DBHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean insertUserData(String name, String email, int balance){
+    public boolean insertUserData(String name, String email, int balance, String accnumber){
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues contentValues = new ContentValues();
@@ -41,6 +42,7 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put(COL1,name);
         contentValues.put(COL2,email);
         contentValues.put(COL3,balance);
+        contentValues.put(COL4, accnumber);
         long res = db.insert(TABLE_NAME, null, contentValues);
 
         return res != -1;
@@ -59,14 +61,10 @@ public class DBHelper extends SQLiteOpenHelper {
 
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL3, balance);
-//        contentValues.put(COL3, to_balance);
 
         db.update(TABLE_NAME,contentValues,"NAME =?",new String[] { name });
 
         return true;
     }
 
-    public void addTransactionDetails(String from,String to,int amount){
-        
-    }
 }

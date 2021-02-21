@@ -60,18 +60,19 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
 
     }
+
     public void addUserData(){
 
-        myDB.insertUserData("Ajita Bhagat","ajitabhagat94@gmail.com", 10000);
-        myDB.insertUserData("Kaustav Sarda","iamkaustav4@gmail.com", 10000);
-        myDB.insertUserData("Priya Johar","priyajohar854@gmail.com", 10000 );
-        myDB.insertUserData("Soumita Basu","soumita.basu.99@gmail.com", 10000 );
-        myDB.insertUserData("Ritaja Mondal","iamrits@gmail.com", 10000);
-        myDB.insertUserData("Anupama Johar","anupama8johar@gmail.com", 10000 );
-        myDB.insertUserData("Ankita Chopra","ankitachopra529@gmail.com", 10000 );
-        myDB.insertUserData("Raj Bose","raj123@gmail.com", 10000);
-        myDB.insertUserData("Pramit De","pramitde89@yahoo.com", 10000 );
-        myDB.insertUserData("Saumya Gupta","itsmesaumya969@gmail.com", 10000 );
+        myDB.insertUserData("Ajita Bhagat","ajitabhagat94@gmail.com", 10000,"XXXX XXXX XXXX 6795");
+        myDB.insertUserData("Kaustav Sarda","iamkaustav4@gmail.com", 10000,"XXXX XXXX XXXX 2935");
+        myDB.insertUserData("Priya Johar","priyajohar854@gmail.com", 10000,"XXXX XXXX XXXX 7252" );
+        myDB.insertUserData("Soumita Basu","soumita.basu.99@gmail.com", 10000 ,"XXXX XXXX XXXX 3355");
+        myDB.insertUserData("Ritaja Mondal","iamrits@gmail.com", 10000,"XXXX XXXX XXXX 9261");
+        myDB.insertUserData("Anupama Johar","anupama8johar@gmail.com", 10000,"XXXX XXXX XXXX 3529");
+        myDB.insertUserData("Ankita Chopra","ankitachopra529@gmail.com", 10000,"XXXX XXXX XXXX 6825" );
+        myDB.insertUserData("Raj Bose","raj123@gmail.com", 10000,"XXXX XXXX XXXX 8263");
+        myDB.insertUserData("Pramit De","pramitde89@yahoo.com", 10000,"XXXX XXXX XXXX 4271");
+        myDB.insertUserData("Saumya Gupta","itsmesaumya969@gmail.com", 10000, "XXXX XXXX XXXX 0037");
 
     }
 
@@ -83,15 +84,12 @@ public class MainActivity extends AppCompatActivity {
             return;
 
         while (cursor.moveToNext()) {
-
-//            int index1 = cursor.getColumnIndex(DBHelper.COL1);
-//            int index2 = cursor.getColumnIndex(DBHelper.COL2);
-//            int index3 = cursor.getColumnIndex(DBHelper.COL3);
             String name = cursor.getString(0);
             String email = cursor.getString(1);
             int balance = cursor.getInt(2);
+            String accnumber = cursor.getString(3);
 
-            Model model = new Model(name, email, balance);
+            Model model = new Model(name, email, balance, accnumber);
             dataList.add(model);
         }
     }

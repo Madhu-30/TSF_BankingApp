@@ -25,10 +25,10 @@ import java.util.List;
 
 public class TransferMoney extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
-    String from_name, from_email;
-    String to_name, to_email, samount="";
+    String from_name, from_email, from_accnumber;
+    String to_name, to_email, samount="", to_accnumber;
     int to_balance, from_balance;
-    TextView tfrom, tfrombalance;
+    TextView tfrom, tfrombalance, tfromaccnumber, ttoaccnumber;
     EditText etamount;
     Button button;
     Spinner spinner;
@@ -36,7 +36,10 @@ public class TransferMoney extends AppCompatActivity implements AdapterView.OnIt
     List<String> nameList = new ArrayList<>();
     List<Integer> balanceList = new ArrayList<>();
     List<String> emailList = new ArrayList<>();
+    List<String> accnumberList = new ArrayList<>();
+
     List<String> allnameList = new ArrayList<>();
+    List<String> allaccnumberList = new ArrayList<>();
     List<Integer> allbalanceList = new ArrayList<>();
     List<String> allemailList = new ArrayList<>();
 
@@ -53,6 +56,9 @@ public class TransferMoney extends AppCompatActivity implements AdapterView.OnIt
         etamount = findViewById(R.id.edittextamount);
         button = findViewById(R.id.button);
         spinner = (Spinner) findViewById(R.id.spinner);
+        tfromaccnumber = findViewById(R.id.from_accnumber);
+        ttoaccnumber = findViewById(R.id.to_accnumber);
+
         ImageView back = findViewById(R.id.back);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,6 +74,7 @@ public class TransferMoney extends AppCompatActivity implements AdapterView.OnIt
         from_name = i.getStringExtra("name_from");
         from_balance = i.getIntExtra("balance_from",100);
         from_email = i.getStringExtra("email_from");
+        from_accnumber = i.getStringExtra("accnumber_from");
 
         viewAll();
 
@@ -78,11 +85,13 @@ public class TransferMoney extends AppCompatActivity implements AdapterView.OnIt
                 nameList.add(allnameList.get(j));
                 emailList.add(allemailList.get(j));
                 balanceList.add(allbalanceList.get(j));
+                accnumberList.add(allaccnumberList.get(j));
             }
         }
 
         tfrom.setText(from_name);
         tfrombalance.setText(from_balance+"");
+        tfromaccnumber.setText(from_accnumber);
         Log.i("HiiiiiiiiiiiFROM", from_name +"   "+from_balance);
 
 
@@ -131,6 +140,9 @@ public class TransferMoney extends AppCompatActivity implements AdapterView.OnIt
         to_name = nameList.get(position);
         to_email = emailList.get(position);
         to_balance = balanceList.get(position);
+        to_accnumber = accnumberList.get(position);
+        ttoaccnumber.setVisibility(View.VISIBLE);
+        ttoaccnumber.setText(to_accnumber);
         Log.i("HiiiiiiiiiiiTO", to_name+"   "+to_balance);
     }
 
@@ -150,12 +162,14 @@ public class TransferMoney extends AppCompatActivity implements AdapterView.OnIt
             String name = cursor.getString(0);
             String email = cursor.getString(1);
             int balance = cursor.getInt(2);
+            String accnum = cursor.getString(3);
 
 //            Model model = new Model(name, email, balance);
 //            list.add(model);
             allnameList.add(name);
             allbalanceList.add(balance);
             allemailList.add(email);
+            allaccnumberList.add(accnum);
         }
     }
 

@@ -44,7 +44,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:layout_marginHorizontal="20dp"
         android:orientation="vertical">
     <LinearLayout
@@ -68,7 +68,24 @@
             android:text="Madhurima Mukherjee"
             android:textSize="20dp"
             android:textColor="@color/black"
+            android:paddingHorizontal="5dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Account Number : "
+            android:textSize="18dp"
+            android:layout_marginTop="10dp"
             android:padding="5dp"/>
+
+        <TextView
+            android:id="@+id/from_accnumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="XXXXXXXXXXXXXXXXXXXXXX"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:paddingHorizontal="5dp"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -85,7 +102,7 @@
             android:text="200"
             android:textSize="20dp"
             android:textColor="@color/black"
-            android:padding="5dp"/>
+            android:paddingHorizontal="5dp"/>
 
     </LinearLayout>
 
@@ -110,13 +127,24 @@
             android:layout_marginVertical="5dp"
             style="@style/TextAppearance.AppCompat.Widget.TextView.SpinnerItem"
             android:layout_gravity="center"/>
-<!--    </LinearLayout>-->
 
-<!--    <LinearLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="40dp"-->
-<!--        android:orientation="vertical">-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Account Number : "
+            android:textSize="18dp"
+            android:visibility="visible"
+            android:padding="5dp"/>
+
+        <TextView
+            android:id="@+id/to_accnumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="XXXX XXXX XXXX XXXX"
+            android:textSize="20dp"
+            android:visibility="gone"
+            android:textColor="@color/black"
+            android:padding="5dp"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -143,7 +171,7 @@
         android:layout_height="wrap_content"
         android:text="Transfer"
         android:layout_gravity="center"
-        android:layout_marginVertical="50dp"
+        android:layout_marginVertical="30dp"
         android:padding="10dp"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:textColor="@color/purple_700"/>

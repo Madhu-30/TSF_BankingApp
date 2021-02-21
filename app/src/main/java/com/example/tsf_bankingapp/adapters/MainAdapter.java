@@ -58,6 +58,8 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
                 i.putExtra("name_from", data.getName());
                 i.putExtra("balance_from", data.getBalance());
                 i.putExtra("email_from", data.getEmail());
+                i.putExtra("accnumber_from", data.getAccountnumber());
+
                 context.startActivity(i);
                 context.overridePendingTransition(R.anim.toptonormal, R.anim.fixed);
             }
@@ -70,6 +72,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
                 i.putExtra("name_from", data.getName());
                 i.putExtra("balance_from", data.getBalance());
                 i.putExtra("email_from", data.getEmail());
+                i.putExtra("accnumber_from", data.getAccountnumber());
                 context.startActivity(i);
                 context.overridePendingTransition(R.anim.toptonormal, R.anim.fixed);
             }
@@ -82,58 +85,12 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
                 i.putExtra("name_from", data.getName());
                 i.putExtra("balance_from", data.getBalance());
                 i.putExtra("email_from", data.getEmail());
+                i.putExtra("accnumber_from", data.getAccountnumber());
+
                 context.startActivity(i);
                 context.overridePendingTransition(R.anim.toptonormal, R.anim.fixed);
             }
         });
-//        holder.edit.setOnClickListener(new View.OnClickListener() {
-//            @SuppressLint("ResourceAsColor")
-//            @Override
-//            public void onClick(View v) {
-//                MainData d = dataList.get(holder.getAdapterPosition());
-//
-//                int sID = d.getID();
-//                String stext = d.getSname();
-//
-//                Dialog dialog = new Dialog(context);
-//                dialog.setContentView(R.layout.dialog_update);
-//                int width = WindowManager.LayoutParams.MATCH_PARENT;
-//                int height = WindowManager.LayoutParams.WRAP_CONTENT;
-//                dialog.getWindow().setLayout(width,height);
-//                dialog.show();
-//
-//                EditText editText = dialog.findViewById(R.id.edit_text);
-//                Button button = dialog.findViewById(R.id.updatebtn);
-//
-//                editText.setText(d.getText());
-//
-//                button.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        String stext = editText.getText().toString().trim();
-//                        database.mainDao().update(sID,stext);
-//                        dialog.dismiss();
-//
-//                        dataList.clear();
-//                        dataList.addAll(database.mainDao().getAll());
-//                        notifyDataSetChanged();
-//                    }
-//                });
-//
-//                holder.delete.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        MainData d = dataList.get(position);
-//                        database.mainDao().delete(d);
-//
-//                        dataList.remove(holder.getAdapterPosition());
-//
-//                        notifyItemRemoved(position);
-//                        notifyItemRangeChanged(position, dataList.size());
-//                    }
-//                });
-//            }
-//        });
 
         holder.layout.setBackgroundResource(R.color.white);
     }
@@ -151,10 +108,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
             super(itemView);
 
             name = itemView.findViewById(R.id.name);
-//            delete = itemView.findViewById(R.id.delete);
-//            edit = itemView.findViewById(R.id.edit);
             email = itemView.findViewById(R.id.email);
-//            cardView = itemView.findViewById(R.id.cardview);
             layout = itemView.findViewById(R.id.linearlayout);
             balance = itemView.findViewById(R.id.balance);
 
